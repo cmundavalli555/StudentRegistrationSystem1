@@ -1,0 +1,21 @@
+﻿@model List<dynamic>
+
+<h2>Admin Page</h2>
+
+<table>
+    <tr>
+        <th>Course Name</th>
+        <th>Registration Count</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Course.Name</td>
+            <td>
+                <a href="@Url.Action("ShowRegisteredStudents", "Registration", new { courseId = item.Course.CourseId })">
+                    @item.RegistrationCount
+                </a>
+            </td>
+        </tr>
+    }
+</table>
